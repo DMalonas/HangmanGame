@@ -45,7 +45,7 @@ public class GameState {
 
 
 
-  void showWord() {
+  public void showWord() {
     for (int i = 0; i < wordToFind.length(); ++i) {
       if (revealedCharacters.contains(Character.toLowerCase(wordToFind.charAt(i)))) {
         System.out.print(wordToFind.charAt(i));
@@ -57,7 +57,7 @@ public class GameState {
     // System.out.println(missing);
   }
 
-  boolean guessLetter() {
+  public boolean guessLetter() {
     String inputString = null;
     System.out.print("Guess a letter or word (? for a hint): ");
     inputString = sc.nextLine().toLowerCase();
@@ -110,7 +110,7 @@ public class GameState {
     return false;
   }
 
-  boolean won() {
+  public boolean won() {
     if (notFoundCharacters.size() == 0) {
       return true;
     } else {
@@ -119,7 +119,7 @@ public class GameState {
   }
 
 
-  boolean lost() {
+  public boolean lost() {
     if (notFoundCharacters.size() > 0 && wrongGuessesLeftCounter == 0) { 
       return true; 
     } else {
@@ -127,7 +127,7 @@ public class GameState {
     }
   }
 
-  void giveHint() {
+  public void giveHint() {
     char hintCharacter;
     setHintStatus(true); // So "Wrong guess" will not be printed on the console.
     if (hintsRemaining > 0 && canProvideMoreHints()) {
